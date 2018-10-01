@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".GridLayout">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cocktail + Stir" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <Button
+                    android:text="Manhattan"
+                    android:textSize="12sp" />
+
+                <Button android:text="Dry Martini" />
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Float" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cocktail + Shake" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <Button android:text="Pousse Cafè" />
+
+                <Button android:text="@string/b_52" />
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4">
+
+                <Button android:text="Sidecar" />
+
+                <Button android:text="Apricot" />
+
+                <Button android:text="Honeymoon" />
+
+                <Button android:text="Daiquiri" />
+
+                <Button android:text="Bacardi" />
+
+                <Button android:text="Jindo" />
+
+                <Button android:text="Geumsan" />
+
+                <Button android:text="Margarita" />
+
+                <Button android:text="Kiss of Fire" />
+
+                <Button android:text="Brandy Alexander" />
+
+                <Button android:text="Apple Martini" />
+
+                <Button android:text="Puppy Love" />
+
+                <Button android:text="Healing" />
+
+                <Button android:text="Cosmopolitan" />
+
+                <Button android:text="New York" />
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Old + Build" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4">
+
+                <Button android:text="Rusty Nail" />
+
+                <Button android:text="Black Russian" />
+
+                <Button android:text="Negroni" />
+
+                <Button android:text="Old Fashioned" />
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Highball + Build" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4">
+
+                <Button android:text="Bloody Mary" />
+
+                <Button android:text="Cuba Libre" />
+
+                <Button android:text="Seabreeze" />
+
+                <Button android:text="Moscow Mule" />
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilsner" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3">
+
+                <Button android:text="Singapore Sling" />
+
+                <Button android:text="Mai-Tai" />
+
+                <Button android:text="Blue Hawaiian" />
+
+                <Button android:text="Tequila Sunrise" />
+
+                <Button android:text="Piña Colada" />
+            </GridLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_favorite"
+        android:enabled="true"
+        android:title="category"
+        android:icon="@color/colorAccent"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_schedules"
+        android:enabled="true"
+        android:title="test"
+        android:icon="@color/colorPrimary"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_music"
+        android:enabled="true"
+        android:title="bookmark"
+        android:icon="@color/colorPrimaryDark"
+        app:showAsAction="ifRoom"/>
+
+</menu>

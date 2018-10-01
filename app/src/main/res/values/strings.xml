@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">BartenderRecipe</string>
+
+    <string name="poussecafe">poussecafe</string>
+    <string name="manhattan">manhattan</string>
+    <string name="drymartini">drymartini</string>
+    <string name="oldfashioned">oldfashioned</string>
+    <string name="brandyalexander">브랜디알렉산더</string>
+    <string name="bloodymary">블러디메리</string>
+    <string name="singaporesling">싱가포르슬링</string>
+    <string name="blackrussian">블랙러시안</string>
+    <string name="margarita">마가리타</string>
+    <string name="rustynail">러스티네일</string>
+
+    <string name="whiskeysour">위스키사워</string>
+    <string name="newyork">뉴욕</string>
+    <string name="harveywallbanger">하비월뱅어</string>
+    <string name="daiquiri">다이키리</string>
+    <string name="kissoffire">키스오브파이어</string>
+    <string name="b52">비-52</string>
+    <string name="junebug">준벅</string>
+    <string name="bacardi">바카디</string>
+    <string name="sloeginfizz">슬로진피즈</string>
+    <string name="cubalibre">쿠바리브레</string>
+
+    <string name="grasshopper">그래스호퍼</string>
+    <string name="seabreeze">시브리즈</string>
+    <string name="applemartini">애플마티니</string>
+    <string name="negroni">니그로니</string>
+    <string name="longislandicedtea">롱아일랜드아이스티</string>
+    <string name="sidecar">사이드카</string>
+    <string name="maitai">마이타이</string>
+    <string name="pinacolada">피냐콜라다</string>
+    <string name="cosmopolitan">코즈모폴리턴</string>
+    <string name="moscowmule">모스코뮬</string>
+
+    <string name="apricot">애프리코트</string>
+    <string name="honeymoon">허니문</string>
+    <string name="bluehawaiian">블루하와이안</string>
+    <string name="kir">키어</string>
+    <string name="tequilasunrise">테킬라선라이즈</string>
+    <string name="healing">힐링</string>
+    <string name="jindo">진도</string>
+    <string name="puppylove">풋사랑</string>
+    <string name="geumsan">금산</string>
+    <string name="gochang">고창</string>
+    <string name="b_52">B-52</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
