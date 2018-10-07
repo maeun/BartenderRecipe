@@ -5,67 +5,116 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.net.Uri
+import android.view.WindowManager
+import android.support.annotation.NonNull
+import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
+import android.view.View
+import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_category.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CategoryFragment.OnFragmentInteractionListener,
+        BookmarkFragment.OnFragmentInteractionListener, TestFragment.OnFragmentInteractionListener,
+        RecipeFragment.OnFragmentInteractionListener {
+    override fun onFragmentInteraction(uri: Uri) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
-    val cocktail = intArrayOf(R.string.poussecafe, R.string.manhattan, R.string.drymartini, R.string.oldfashioned, R.string.brandyalexander,
-            R.string.bloodymary, R.string.singaporesling, R.string.blackrussian, R.string.margarita, R.string.rustynail,
-            R.string.whiskeysour, R.string.newyork, R.string.harveywallbanger, R.string.daiquiri, R.string.kissoffire,
-            R.string.b52, R.string.junebug, R.string.bacardi, R.string.sloeginfizz, R.string.cubalibre,
-            R.string.grasshopper, R.string.seabreeze, R.string.applemartini, R.string.negroni, R.string.longislandicedtea,
-            R.string.sidecar, R.string.maitai, R.string.pinacolada, R.string.cosmopolitan, R.string.moscowmule,
-            R.string.apricot, R.string.honeymoon, R.string.bluehawaiian, R.string.kir, R.string.tequilasunrise,
-            R.string.healing, R.string.jindo, R.string.puppylove, R.string.geumsan, R.string.gochang)
+    var recipe = arrayListOf<RecipeData>(
+            //01~05
+            RecipeData("Poussecafe", "Stemed Liqueur Glass", "Float", "", 0),
+            RecipeData("Manhattan", "Cocktail Glass", "Stir", "Cherry", 0),
+            RecipeData("Dry Martini", "Cocktail Glass", "Stir", "Green Olive", 0),
+            RecipeData("Old Fashioned", "Old-fashioned Glass", "Build", "A Slice of Orange and Cherry", 0),
+            RecipeData("Brandy Alexander", "Cocktail Glass", "Shake", "Nutmeg Powder", 0),
+            //06~10
+            RecipeData("Bloody Mary", "Highball Glass", "Build", "A Slice of Lemon or Celery", 0),
+            RecipeData("Singapore Sling", "Footed Pilsner Glass", "Shake & Build", "A Slice of Orange and Cherry", 0),
+            RecipeData("Black Russian", "Old-fashioned Glass", "Build", "", 0),
+            RecipeData("Margarita", "Cocktail Glass", "Shake", "Rimming with Salt", 0),
+            RecipeData("Rusty Nail", "Old-fashioned Glass", "Build", "", 0),
+            //11~15
+            RecipeData("Whiskey Sour", "Sour Glass", "Shake & Build", "A Slice of Lemon and Cherry", 0),
+            RecipeData("New York", "Cocktail Glass", "Shake", "Twist of Lemon peel", 0),
+            RecipeData("Harvey Wallbanger", "Collins Glass", "Build & Float", "", 0),
+            RecipeData("Daiquiri", "Cocktail Glass", "Shake", "", 0),
+            RecipeData("Kiss of Fire", "Cocktail Glass", "Shake", "Rimming with Sugar", 0),
+            //16~20
+            RecipeData("B-52", "Sherry Glass", "Float", "", 0),
+            RecipeData("June Bug", "Collins Glass", "Shake", "A Wedge of fresh Pineapple & Cherry", 0),
+            RecipeData("Bacardi", "Cocktail Glass", "Shake", "", 0),
+            RecipeData("Sloegin Fizz", "Highball Glass", "Shake & Build", "A Slice of Lemon", 0),
+            RecipeData("Cubalibre", "Highball Glass", "Build", "A Wedge of Lemon", 0),
+            //21~25
+            RecipeData("Grasshopper", "Saucer Champagne Glass", "Shake", "", 0),
+            RecipeData("Sea Breeze", "Highball Glass", "Build", "A Wedge of Lime or Lemon", 0),
+            RecipeData("Apple Martini", "Cocktail Glass", "Shake", "A Slice of Apple", 0),
+            RecipeData("Negroni", "Old-fashioned Glass", "Build", "Twist of Lemon peel", 0),
+            RecipeData("Long Island Ice Tea", "Collins Glass", "Build", "A Wedge of Lime or Lemon", 0),
+            //26~30
+            RecipeData("Sidecar", "Cocktail Glass", "Shake", "", 0),
+            RecipeData("Maitai", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple(Orange) & Cherry", 0),
+            RecipeData("Pinacolada", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple & Cherry", 0),
+            RecipeData("Cosmopolitan", "Cocktail Glass", "Shake", "Twist of Lime or Lemon peel", 0),
+            RecipeData("Moscowmule", "Highball Glass", "Build", "A Slice of Lime or Lemon", 0),
+            //31~35
+            RecipeData("Apricot", "Cocktail Glass", "Shake", "", 0),
+            RecipeData("Honeymoon", "Cocktail Glass", "Shake", "", 0),
+            RecipeData("Blue Hawaiian", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple & Cherry",  0),
+            RecipeData("Kir", "White Wine Glass", "Build", "Twist of Lemon peel", 0),
+            RecipeData("Tequila Sunrise", "Footed Pilsner Glass", "Build & Float", "", 0),
+            //36~40
+            RecipeData("Healing", "Cocktail Glass", "Shake", "Twist of Lemon peel", 0),
+            RecipeData("Jindo", "Cocktail Glass", "Shake", "", 0),
+            RecipeData("Puppy Love", "Cocktail Glass", "Shake", "A Slice of Apple", 0),
+            RecipeData("Geumsan", "Cocktail Glass", "Shake", "", 0),
+            RecipeData("Gochang", "Flute Champagne Glass", "Stir & Build", "", 0))
 
-    val poussecafe_ = arrayOf("poussecafe", "Stemed Liqueur Glass", "Float", "", "https://youtu.be/Qn2kN4j5aBw")
-    val poussecafeBase = arrayOf("Grenadine Syrup", "Crème de Menthe(Green)", "Brandy")
-    val poussecafeRatio = arrayOf("1/3", "1/3", "1/3")
-
-    val manhattan_ = arrayOf("manhattan", "Cocktail Glass", "Stir", "Cherry", "https://youtu.be/3Z4UoRUKdcI")
-    val manhattanBase = arrayOf("Bourbon Whiskey", "Sweet Vermouth", "Angostura Bitters")
-    val manhattanRatio = arrayOf("1 1/2", "3/4", "1D")
-
-    val drymartini_ = arrayOf("drymartini", "Cocktail Glass", "Stir", "Green Olive", "https://youtu.be/RBkvLOEPqwA")
-    val drymartiniBase = arrayOf("Dry Gin", "Dry Vermouth")
-    val drymartiniRatio = arrayOf("2", "1/3")
-
-    val oldfashioned_ = arrayOf("oldfashioned", "Old-fashioned Glass", "Build", "A Slice of Orange and Cherry", "https://youtu.be/mycKEmhkj-E")
-    val oldfashionedBase = arrayOf("Bourbon Whiskey", "Cubed Sugar", "Angostura Bitters", "Soda Water")
-    val oldfashionedRatio = arrayOf("1 1/2", "1ea", "1D", "1/2")
-
-    val brandyalexander_ = arrayOf("brandyalexander", "Cocktail Glass", "Shake", "Nutmeg Powder", "https://youtu.be/9gelfaXaCME")
-    val brandyalexanderBase = arrayOf("Brandy", "Crème de Cacao(Brown)", "Light Milk")
-    val brandyalexanderRatio = arrayOf("3/4", "3/4", "3/4")
-
-    val poussecafe = arrayOf(poussecafe_, poussecafeBase, poussecafeRatio)
-    val manhattan = arrayOf(manhattan_, manhattanBase, manhattanRatio)
-    val drymartini = arrayOf(drymartini_, drymartiniBase, drymartiniRatio)
-    val oldfashioned = arrayOf(oldfashioned_, oldfashionedBase, oldfashionedRatio)
-    val brandyalexander = arrayOf(brandyalexander_, brandyalexanderBase, brandyalexanderRatio)
-
-    val recipe = arrayOf(poussecafe, manhattan, drymartini, oldfashioned, brandyalexander)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        addFragment(CategoryFragment())
 
-//        cocktailNameTv.setText(recipe[0][0][0])
-//        recipe_1.setText(recipe[0][1][1])
-//
-//        randomBtn.setOnClickListener {
-//            val intent = Intent(Intent.ACTION_VIEW)
-//            intent.data = Uri.parse(recipe[0][0][3])
-//            startActivity(intent)
+
+        main_tab.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.category_tab -> {
+                    replaceFragment(CategoryFragment())
+                }
+                R.id.test_tab -> {
+                    replaceFragment(TestFragment())
+                }
+                R.id.bookmark_tab -> {
+                    replaceFragment(BookmarkFragment())
+                }
+            }
+            true
+        }
     }
 
+    fun addFragment(fragment: Fragment) {
+        val fm = supportFragmentManager
+        val transaction = fm.beginTransaction()
+        transaction.add(R.id.main_frame, fragment)
+        transaction.commit()
+    }
 
-//        cocktailNameTv.setText(cocktail[(Math. random() * cocktail.size).toInt()])
+    fun replaceFragment(fragment: Fragment) {
+        val fm = supportFragmentManager
+        val transaction = fm.beginTransaction()
+        transaction.replace(R.id.main_frame, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
 
-//        randomBtn.setOnClickListener {
-//            cocktailNameTv.setText(cocktail[(Math.random() * cocktail.size).toInt()])
-//        }
-
+    fun recipe(): ArrayList<RecipeData> {
+        return recipe
+    }
 }
-
