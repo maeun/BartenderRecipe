@@ -24,55 +24,106 @@ class MainActivity : AppCompatActivity(), CategoryFragment.OnFragmentInteraction
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    var ratio = arrayListOf(
+            //01~05
+            arrayListOf(RatioData("Grenadine Syrup", "1/3 part"), RatioData("Crème de Menthe(Green)", "1/3 part"), RatioData("Brandy", "1/3 part")),
+            arrayListOf(RatioData("Bourbon Whiskey", "1 1/2 oz"), RatioData("Sweet Vermouth", "3/4 oz"), RatioData("Angostura Bitters", "1 dash")),
+            arrayListOf(RatioData("Dry Gin", "2 oz"), RatioData("Dry Vermouth", "1/3 oz")),
+            arrayListOf(RatioData("Bourbon Whiskey", "1 1/2 oz"), RatioData("Cubed Sugar", "1 ea"), RatioData("Angostura Bitters", "1 dash"), RatioData("Soda Water", "1/2 oz")),
+            arrayListOf(RatioData("Brandy", "3/4 oz"), RatioData("Crème de Cacao(Brown)", "3/4 oz"), RatioData("Light Milk", "3/4 oz")),
+            //06~10
+            arrayListOf(RatioData("Vodka", "1 1/2 oz"), RatioData("Worcestershire Sauce", "1 tsp"), RatioData("Tabasco Sauce", "3/4 oz"), RatioData("Salt and Pepper", "Pinch"), RatioData("Tomato Juice", "Fill")),
+            arrayListOf(RatioData("Dry Gin", "1 1/2 oz"), RatioData("Lemon Juice", "1/2 oz"), RatioData("Powdered Sugar", "1 tsp"), RatioData("Soda Water", "Fill"), RatioData("Cherry Flavored Brandy", "1/2oz")),
+            arrayListOf(RatioData("Vodka", "1 oz"), RatioData("Coffee Liqueur", "1/2 oz")),
+            arrayListOf(RatioData("Tequila", "1 1/2 oz"), RatioData("Triple Sec", "1/2 oz"), RatioData("Lime Juice", "1/2 oz")),
+            arrayListOf(RatioData("Scotch Whisky", "1 oz"), RatioData("Drambuie", "1/2 oz")),
+            //11~15
+            arrayListOf(RatioData("Bourbon Whiskey", "1 1/2 oz"), RatioData("Lemon Juice", "1/2 oz"), RatioData("Powdered Sugar", "1 tsp"), RatioData("Soda Water", "1 oz")),
+            arrayListOf(RatioData("Bourbon Whiskey", "1 1/2 oz"), RatioData("Lime Juice", "1/2 oz"), RatioData("Powdered Sugar", "1 tsp"), RatioData("Grenadine Syrup", "1/2 tsp")),
+            arrayListOf(RatioData("Vodka", "1 1/2 oz"), RatioData("Orange Juice", "Fill"), RatioData("Galliano", "1/2 oz")),
+            arrayListOf(RatioData("Light Rum", "1 3/4 oz"), RatioData("Lime Juice", "3/4 oz"), RatioData("Powdered Sugar", "1 tsp")),
+            arrayListOf(RatioData("Vodka", "1 oz"), RatioData("Sloe Gin", "1/2 oz"), RatioData("Dry Vermouth", "1/2 oz"), RatioData("Lemon Juice", "1 tsp")),
+            //16~20
+            arrayListOf(RatioData("Coffee Liqueur", "1/3 part"), RatioData("Bailey's Irish Cream Liqueur", "1/3 part"), RatioData("Grand Marnier", "1/3 part")),
+            arrayListOf(RatioData("Midori(Melon Liqueur)", "1 oz"), RatioData("Coconut Flavored Rum", "1/2 oz"), RatioData("Banana Liqueur", "1/2 oz"), RatioData("Pineapple Juice", "2 oz"), RatioData("Sweet & Sour mix", "2 oz")),
+            arrayListOf(RatioData("Bacardi Rum White", "1 3/4 oz"), RatioData("Lime Juice", "3/4 oz"), RatioData("Grenadine Syrup", "1 tsp")),
+            arrayListOf(RatioData("Sole Gin", "1 1/2 oz"), RatioData("Lemon Juice", "1/2 oz"), RatioData("Powdered Sugar", "1 tsp"), RatioData("Soda Water", "Fill")),
+            arrayListOf(RatioData("Light Rum", "1 1/2 oz"), RatioData("Lime Juice", "1/2 oz"), RatioData("Cola", "Fill")),
+            //21~25
+            arrayListOf(RatioData("Crème de Menthe(Green)", "1 oz"), RatioData("Crème de Cacao(White)", "1 oz"), RatioData("Light Milk", "1 oz")),
+            arrayListOf(RatioData("Vodka", "1 1/2 oz"), RatioData("Cranberry Juice", "3 oz"), RatioData("Grapefruit Juice", "1/2 oz")),
+            arrayListOf(RatioData("Vodka", "1 oz"), RatioData("Apple Pucker", "1 oz"), RatioData("Lime Juice", "1/2 oz")),
+            arrayListOf(RatioData("Dry Gin", "3/4 oz"), RatioData("Sweet Vermouth", "3/4 oz"), RatioData("Campari", "3/4 oz")),
+            arrayListOf(RatioData("Gin", "1/2 oz"), RatioData("Vodka", "1/2 oz"), RatioData("Light Rum", "1/2 oz"), RatioData("Tequila", "1/2 oz"), RatioData("Triple Sec", "1/2 oz"), RatioData("Sweet & Sour Mix", "1 1/2 oz"), RatioData("Cola", "Fill")),
+            //26~30
+            arrayListOf(RatioData("Brandy", "1 oz"), RatioData("Cointreau(or Triple Sec)", "1 oz"), RatioData("Lemon Juice", "1/4 oz")),
+            arrayListOf(RatioData("Light Rum", "1 1/4 oz"), RatioData("Triple Sec", "3/4 oz"), RatioData("Lime Juice", "1 oz"), RatioData("Pineapple Juice", "1 oz"), RatioData("Orange Juice", "1 oz"), RatioData("Grenadine Syrup", "1/4 oz")),
+            arrayListOf(RatioData("Light Rum", "1 1/4 oz"), RatioData("Pina Colada Mix", "2 oz"), RatioData("Pineapple Juice", "2 oz")),
+            arrayListOf(RatioData("Vodka", "1 oz"), RatioData("Triple Sec", "1/2 oz"), RatioData("Lime Juice", "1/2 oz"), RatioData("Cranberry Juice", "1/2 oz")),
+            arrayListOf(RatioData("Vodka", "1 1/2 oz"), RatioData("Lime Juice", "1/2 oz"), RatioData("Ginger ale", "Fill")),
+            //31~35
+            arrayListOf(RatioData("Apricot Flavored Brandy", "1 1/2 oz"), RatioData("Dry Gin", "1 tsp"), RatioData("Lemon Juice", "1/2 oz"), RatioData("Orange Juice", "1/2 oz")),
+            arrayListOf(RatioData("Apple Brandy", "3/4 oz"), RatioData("Benedictine DOM", "3/4 oz"), RatioData("Triple Sec", "1/4 oz"), RatioData("Lemon Juice", "1/2 oz")),
+            arrayListOf(RatioData("Light Rum", "1 oz"), RatioData("Blue Curacao", "1 oz"), RatioData("Coconut Flavored Rum", "1 oz"), RatioData("Pineapple Juice", "2 1/2 oz")),
+            arrayListOf(RatioData("White Wine", "3 oz"), RatioData("Crème de Cassis", "1/2 oz")),
+            arrayListOf(RatioData("Tequila", "1 1/2 oz"), RatioData("Orange Juice", "Fill"), RatioData("Grenadine Syrup", "1/2 oz")),
+            //36~40
+            arrayListOf(RatioData("Gam Hong Ro", "1 1/2 oz"), RatioData("Benedictine", "1/3 oz"), RatioData("Crème de Cassis", "1/3 oz"), RatioData("Sweet & Sour mix", "1 oz")),
+            arrayListOf(RatioData("Jindo Hong Ju", "1 oz"), RatioData("Crème de Menthe White", "1/2 oz"), RatioData("White Grape Juice", "3/4 oz"), RatioData("Raspberry Syrup", "1/2 oz")),
+            arrayListOf(RatioData("Andong Soju", "1 oz"), RatioData("Triple Sec", "1/3 oz"), RatioData("Apple Pucker", "1 oz"), RatioData("Lime Juice", "1/3 oz")),
+            arrayListOf(RatioData("Geumsan Insamju", "1 1/2 oz"), RatioData("Coffee Liqueur", "1/2 oz"), RatioData("Apple Pucker", "1/2 oz"), RatioData("Lime Juice", "1 tsp")),
+            arrayListOf(RatioData("Sunwoonsan bokbunja wine", "2 oz"), RatioData("Cointreau(or Triple Sec)", "1/2 oz"), RatioData("Sprite", "2 oz")))
+
+
     var recipe = arrayListOf<RecipeData>(
             //01~05
-            RecipeData("Poussecafe", "Stemed Liqueur Glass", "Float", "", 0),
-            RecipeData("Manhattan", "Cocktail Glass", "Stir", "Cherry", 0),
-            RecipeData("Dry Martini", "Cocktail Glass", "Stir", "Green Olive", 0),
-            RecipeData("Old Fashioned", "Old-fashioned Glass", "Build", "A Slice of Orange and Cherry", 0),
-            RecipeData("Brandy Alexander", "Cocktail Glass", "Shake", "Nutmeg Powder", 0),
+            RecipeData("Poussecafe", "Stemed Liqueur Glass", "Float", "", ratio[0], 0),
+            RecipeData("Manhattan", "Cocktail Glass", "Stir", "Cherry", ratio[1], 0),
+            RecipeData("Dry Martini", "Cocktail Glass", "Stir", "Green Olive", ratio[2], 0),
+            RecipeData("Old Fashioned", "Old-fashioned Glass", "Build", "A Slice of Orange and Cherry", ratio[3], 0),
+            RecipeData("Brandy Alexander", "Cocktail Glass", "Shake", "Nutmeg Powder", ratio[4], 0),
             //06~10
-            RecipeData("Bloody Mary", "Highball Glass", "Build", "A Slice of Lemon or Celery", 0),
-            RecipeData("Singapore Sling", "Footed Pilsner Glass", "Shake & Build", "A Slice of Orange and Cherry", 0),
-            RecipeData("Black Russian", "Old-fashioned Glass", "Build", "", 0),
-            RecipeData("Margarita", "Cocktail Glass", "Shake", "Rimming with Salt", 0),
-            RecipeData("Rusty Nail", "Old-fashioned Glass", "Build", "", 0),
+            RecipeData("Bloody Mary", "Highball Glass", "Build", "A Slice of Lemon", ratio[5], 0),
+            RecipeData("Singapore Sling", "Footed Pilsner Glass", "Shake & Build", "A Slice of Orange and Cherry", ratio[6], 0),
+            RecipeData("Black Russian", "Old-fashioned Glass", "Build", "", ratio[7], 0),
+            RecipeData("Margarita", "Cocktail Glass", "Shake", "Rimming with Salt", ratio[8], 0),
+            RecipeData("Rusty Nail", "Old-fashioned Glass", "Build", "", ratio[9], 0),
             //11~15
-            RecipeData("Whiskey Sour", "Sour Glass", "Shake & Build", "A Slice of Lemon and Cherry", 0),
-            RecipeData("New York", "Cocktail Glass", "Shake", "Twist of Lemon peel", 0),
-            RecipeData("Harvey Wallbanger", "Collins Glass", "Build & Float", "", 0),
-            RecipeData("Daiquiri", "Cocktail Glass", "Shake", "", 0),
-            RecipeData("Kiss of Fire", "Cocktail Glass", "Shake", "Rimming with Sugar", 0),
+            RecipeData("Whiskey Sour", "Sour Glass", "Shake & Build", "A Slice of Lemon and Cherry", ratio[10], 0),
+            RecipeData("New York", "Cocktail Glass", "Shake", "Twist of Lemon peel", ratio[11], 0),
+            RecipeData("Harvey Wallbanger", "Collins Glass", "Build & Float", "", ratio[12], 0),
+            RecipeData("Daiquiri", "Cocktail Glass", "Shake", "", ratio[13], 0),
+            RecipeData("Kiss of Fire", "Cocktail Glass", "Shake", "Rimming with Sugar", ratio[14], 0),
             //16~20
-            RecipeData("B-52", "Sherry Glass", "Float", "", 0),
-            RecipeData("June Bug", "Collins Glass", "Shake", "A Wedge of fresh Pineapple & Cherry", 0),
-            RecipeData("Bacardi", "Cocktail Glass", "Shake", "", 0),
-            RecipeData("Sloegin Fizz", "Highball Glass", "Shake & Build", "A Slice of Lemon", 0),
-            RecipeData("Cubalibre", "Highball Glass", "Build", "A Wedge of Lemon", 0),
+            RecipeData("B-52", "Sherry Glass", "Float", "", ratio[15], 0),
+            RecipeData("June Bug", "Collins Glass", "Shake", "A Wedge of fresh Pineapple & Cherry", ratio[16], 0),
+            RecipeData("Bacardi", "Cocktail Glass", "Shake", "", ratio[17], 0),
+            RecipeData("Sloegin Fizz", "Highball Glass", "Shake & Build", "A Slice of Lemon", ratio[18], 0),
+            RecipeData("Cubalibre", "Highball Glass", "Build", "A Wedge of Lemon", ratio[19], 0),
             //21~25
-            RecipeData("Grasshopper", "Saucer Champagne Glass", "Shake", "", 0),
-            RecipeData("Sea Breeze", "Highball Glass", "Build", "A Wedge of Lime or Lemon", 0),
-            RecipeData("Apple Martini", "Cocktail Glass", "Shake", "A Slice of Apple", 0),
-            RecipeData("Negroni", "Old-fashioned Glass", "Build", "Twist of Lemon peel", 0),
-            RecipeData("Long Island Ice Tea", "Collins Glass", "Build", "A Wedge of Lime or Lemon", 0),
+            RecipeData("Grasshopper", "Saucer Champagne Glass", "Shake", "", ratio[20], 0),
+            RecipeData("Sea Breeze", "Highball Glass", "Build", "A Wedge of Lemon", ratio[21], 0),
+            RecipeData("Apple Martini", "Cocktail Glass", "Shake", "A Slice of Apple", ratio[22], 0),
+            RecipeData("Negroni", "Old-fashioned Glass", "Build", "Twist of Lemon peel", ratio[23], 0),
+            RecipeData("Long Island Ice Tea", "Collins Glass", "Build", "A Wedge of Lemon", ratio[24], 0),
             //26~30
-            RecipeData("Sidecar", "Cocktail Glass", "Shake", "", 0),
-            RecipeData("Maitai", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple(Orange) & Cherry", 0),
-            RecipeData("Pinacolada", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple & Cherry", 0),
-            RecipeData("Cosmopolitan", "Cocktail Glass", "Shake", "Twist of Lime or Lemon peel", 0),
-            RecipeData("Moscowmule", "Highball Glass", "Build", "A Slice of Lime or Lemon", 0),
+            RecipeData("Sidecar", "Cocktail Glass", "Shake", "", ratio[25], 0),
+            RecipeData("Maitai", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple & Cherry", ratio[26], 0),
+            RecipeData("Pinacolada", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple & Cherry", ratio[27], 0),
+            RecipeData("Cosmopolitan", "Cocktail Glass", "Shake", "Twist of Lemon peel", ratio[28], 0),
+            RecipeData("Moscowmule", "Highball Glass", "Build", "A Slice of Lemon", ratio[29], 0),
             //31~35
-            RecipeData("Apricot", "Cocktail Glass", "Shake", "", 0),
-            RecipeData("Honeymoon", "Cocktail Glass", "Shake", "", 0),
-            RecipeData("Blue Hawaiian", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple & Cherry",  0),
-            RecipeData("Kir", "White Wine Glass", "Build", "Twist of Lemon peel", 0),
-            RecipeData("Tequila Sunrise", "Footed Pilsner Glass", "Build & Float", "", 0),
+            RecipeData("Apricot", "Cocktail Glass", "Shake", "", ratio[30], 0),
+            RecipeData("Honeymoon", "Cocktail Glass", "Shake", "", ratio[31], 0),
+            RecipeData("Blue Hawaiian", "Footed Pilsner Glass", "Blend", "A Wedge of fresh Pineapple & Cherry", ratio[32],  0),
+            RecipeData("Kir", "White Wine Glass", "Build", "Twist of Lemon peel", ratio[33], 0),
+            RecipeData("Tequila Sunrise", "Footed Pilsner Glass", "Build & Float", "", ratio[34], 0),
             //36~40
-            RecipeData("Healing", "Cocktail Glass", "Shake", "Twist of Lemon peel", 0),
-            RecipeData("Jindo", "Cocktail Glass", "Shake", "", 0),
-            RecipeData("Puppy Love", "Cocktail Glass", "Shake", "A Slice of Apple", 0),
-            RecipeData("Geumsan", "Cocktail Glass", "Shake", "", 0),
-            RecipeData("Gochang", "Flute Champagne Glass", "Stir & Build", "", 0))
+            RecipeData("Healing", "Cocktail Glass", "Shake", "Twist of Lemon peel", ratio[35], 0),
+            RecipeData("Jindo", "Cocktail Glass", "Shake", "", ratio[36], 0),
+            RecipeData("Puppy Love", "Cocktail Glass", "Shake", "A Slice of Apple", ratio[37], 0),
+            RecipeData("Geumsan", "Cocktail Glass", "Shake", "", ratio[38], 0),
+            RecipeData("Gochang", "Flute Champagne Glass", "Stir & Build", "", ratio[39], 0))
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

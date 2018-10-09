@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_favorite"
+        android:id="@+id/category_tab"
         android:enabled="true"
         android:title="category"
         android:icon="@color/colorAccent"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/action_schedules"
+        android:id="@+id/test_tab"
         android:enabled="true"
         android:title="test"
         android:icon="@color/colorPrimary"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/action_music"
+        android:id="@+id/bookmark_tab"
         android:enabled="true"
         android:title="bookmark"
         android:icon="@color/colorPrimaryDark"

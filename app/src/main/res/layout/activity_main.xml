@@ -43,6 +43,13 @@
     <!--app:layout_constraintTop_toBottomOf="@+id/cocktailNameTv"-->
     <!--app:layout_constraintVertical_bias="0.685" />-->
 
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_tab">
+    </FrameLayout>
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/main_tab"
         android:layout_width="match_parent"
@@ -51,8 +58,7 @@
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
-        app:menu="@menu/bottom_navigation_menu"
-    >
+        app:menu="@menu/bottom_navigation_menu">
 
     </android.support.design.widget.BottomNavigationView>
 
