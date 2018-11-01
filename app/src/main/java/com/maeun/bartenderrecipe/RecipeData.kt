@@ -3,14 +3,15 @@ package com.maeun.bartenderrecipe
 import android.os.Parcel
 import android.os.Parcelable
 
-data class RecipeData(var name : String, var glass : String, var method : String, var garnish : String, var ratio : ArrayList<RatioData>, var bookmark : Int) : Parcelable {
+data class RecipeData(var name : String, var glass : String, var method : String, var garnish : String, var ratio : ArrayList<RatioData>, var bookmark : Int, var video : String) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             TODO("ratio"),
-            parcel.readInt()) {
+            parcel.readInt(),
+            parcel.readString()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -19,6 +20,7 @@ data class RecipeData(var name : String, var glass : String, var method : String
         parcel.writeString(method)
         parcel.writeString(garnish)
         parcel.writeInt(bookmark)
+        parcel.writeString(video)
     }
 
     override fun describeContents(): Int {

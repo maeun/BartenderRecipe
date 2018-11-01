@@ -1,42 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RecipeFragment"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".RecipeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/dialog_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="cocktailName" />
+        android:text="cocktailName"
+        android:textAlignment="center"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/dialog_glass"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="glassName" />
+        android:layout_below="@id/dialog_name"
+        android:layout_marginTop="7dp"
+        android:text="glassName"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/dialog_method"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="method" />
+        android:layout_below="@id/dialog_glass"
+        android:text="method"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/dialog_garnish"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="garnish" />
+        android:layout_below="@id/dialog_method"
+        android:text="garnish"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
     <TableLayout
         android:id="@+id/dialog_table"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_garnish"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="6dp">
 
     </TableLayout>
 
+    <TextView
+        android:id="@+id/dialog_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_table"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:text="조주영상 보기"
+        android:textAlignment="center"
+        android:textSize="16sp" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/bookmarkStar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/dialog_video"
+        android:src="@drawable/star_empty" />
+
+</RelativeLayout>

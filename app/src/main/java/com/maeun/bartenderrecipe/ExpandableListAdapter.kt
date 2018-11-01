@@ -16,15 +16,10 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.FragmentActivity
 import android.os.Bundle
+import android.util.Log
 
 
-
-
-
-
-
-
-class ExpandableListAdapter(var context: Context, var expandedView: ExpandableListView, var header: MutableList<String>, var body: MutableList<MutableList<String>>, var recipe : ArrayList<RecipeData>) : BaseExpandableListAdapter() {
+class ExpandableListAdapter(var context: Context, var expandedView: ExpandableListView, var header: MutableList<String>, var body: MutableList<MutableList<String>>, var recipe: MutableList<RecipeData>) : BaseExpandableListAdapter() {
     override fun getGroup(groupPosition: Int): String {
         return header[groupPosition]
     }
@@ -93,39 +88,32 @@ class ExpandableListAdapter(var context: Context, var expandedView: ExpandableLi
         title?.setOnClickListener {
 
             var name = title.text
-            var glass = ""
-            var method = ""
-            var garnish = ""
-            var ratio = ArrayList<RatioData>()
-
-            for(i in recipe.indices){
-                if(name == recipe[i].name){
-                    glass = recipe[i].glass
-                    method = recipe[i].method
-                    garnish = recipe[i].garnish
-                    ratio = recipe[i].ratio
-                }
-            }
 
             val activity = context as FragmentActivity
             val fm = activity.supportFragmentManager
-
             val args = Bundle()
-            args.putString("name", name.toString())
-            args.putString("glass", glass)
-            args.putString("method", method)
-            args.putString("garnish", garnish)
-            args.putParcelableArrayList("ratio", ratio)
+
+            for (i in recipe.indices) {
+                if (name == recipe[i].name) {
+                    var glass = recipe[i].glass
+                    var method = recipe[i].method
+                    var garnish = recipe[i].garnish
+                    var ratio = recipe[i].ratio
+                    var video = recipe[i].video
+
+                    args.putString("name", name.toString())
+                    args.putString("glass", glass)
+                    args.putString("method", method)
+                    args.putString("garnish", garnish)
+                    args.putParcelableArrayList("ratio", ratio)
+                    args.putString("video", video)
+                    args.putInt("index", i)
+                }
+            }
 
             val recipeFragment = RecipeFragment()
             recipeFragment.arguments = args
             recipeFragment.show(fm, "recipe")
-
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(title.text)
-            builder.setMessage(recipe[0].toString())
-            builder.setPositiveButton("닫기", null)
-            builder.show()
         }
 
         return convertView
